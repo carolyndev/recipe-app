@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Recipe = (props) => {
-  const { clearAll, id, title, src } = props;
+const RecipeCard = (props) => {
+  const {
+    clearResults,
+    loading,
+    setLoading,
+    id,
+    title,
+    src,
+    search,
+    setSearch,
+  } = props;
+
   return (
     <div
-      onClick={clearAll}
+      onClick={clearResults}
       className="recipe text-left flex flex-col justify-end py-4 px-6 mb-4 border rounded border-solid border-gray-300 border-opacity-50 shadow-lg"
     >
       <Link to={`/recipe/${id}`}>
@@ -20,4 +30,4 @@ const Recipe = (props) => {
   );
 };
 
-export default Recipe;
+export default RecipeCard;

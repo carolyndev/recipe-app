@@ -1,30 +1,59 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+// import { Switch, Route } from 'react-router-dom';
 
 import UserInput from './UserInput';
-import RecipeCards from './RecipeCards';
-import RecipeDetails from './RecipeDetails';
+import RecipeList from './RecipeList';
+// import RecipeDetails from './RecipeDetails';
+// import Favorites from './Favorites';
 
-const Main = (props) => {
-  const { clearAll, recipes, setRecipes, search, setSearch } = props;
+const Main = (props, match) => {
+  // console.log(match);
+  const {
+    clearResults,
+    loading,
+    setLoading,
+    recipes,
+    setRecipes,
+    search,
+    setSearch,
+    showForm,
+    setShowForm,
+  } = props;
+
+  useEffect(() => {
+    setShowForm(true);
+  }, []);
 
   return (
     <div className="main">
-      <UserInput
-        recipes={recipes}
-        setRecipes={setRecipes}
-        search={search}
-        setSearch={setSearch}
-      />
-      <RecipeCards
-        clearAll={clearAll}
-        recipes={recipes}
-        setRecipes={setRecipes}
-      />
+      {showForm === false ? (
+        <></>
+      ) : (
+        <>
+          <UserInput
+            loading={loading}
+            setLoading={setLoading}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            search={search}
+            setSearch={setSearch}
+          />
+          <RecipeList
+            clearResults={clearResults}
+            loading={loading}
+            setLoading={setLoading}
+            recipes={recipes}
+            setRecipes={setRecipes}
+            search={search}
+            setSearch={setSearch}
+          />
+        </>
+      )}
 
-      <Switch>
+      {/* <Switch>
         <Route path="/recipe/:id" exact component={RecipeDetails} />
-      </Switch>
+        <Route path="/favorites" component={Favorites} />
+      </Switch> */}
     </div>
   );
 };
