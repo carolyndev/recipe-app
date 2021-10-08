@@ -6,11 +6,6 @@
 
 // header
 
-.nav__links {
-  display: flex;
-  flex-direction: row;
-}
-
 // recipe card
 .recipe h3 {
   display: -webkit-box;
@@ -18,15 +13,4 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.ingredients-list {
-  li {
-    padding-left: 0.5rem;
-
-    &::before {
-      content: '-';
-      margin-right: 0.5rem;
-    }
-  }
 }
