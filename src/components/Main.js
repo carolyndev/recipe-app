@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
-// import { Switch, Route } from 'react-router-dom';
+import illustration from '../images/food-illu.svg';
 
 import UserInput from './UserInput';
 import RecipeList from './RecipeList';
-// import RecipeDetails from './RecipeDetails';
-// import Favorites from './Favorites';
 
 const Main = (props, match) => {
   // console.log(match);
   const {
-    clearResults,
+    API_KEY,
+    hideForm,
+    favorites,
+    setFavorites,
     loading,
     setLoading,
     recipes,
@@ -18,6 +19,10 @@ const Main = (props, match) => {
     setSearch,
     showForm,
     setShowForm,
+    uniqueFavorites,
+    setUniqueFavorites,
+    showRecipes,
+    setShowRecipes,
   } = props;
 
   useEffect(() => {
@@ -29,31 +34,66 @@ const Main = (props, match) => {
       {showForm === false ? (
         <></>
       ) : (
-        <>
+        <div className="pb-8">
+          <div className="max-w-90 mx-auto flex flex-col lg:flex-row justify-center items-center">
+            {recipes.length > 0 ? (
+              <img
+                src={illustration}
+                alt="food illustration"
+                className="w-1/2 md:w-2/5 lg:w-3/12 mx-auto my-8"
+              />
+            ) : (
+              <>
+                <div className="mx-auto">
+                  <h1 className="block mt-12 mb-4 text-6xl tracking-wider text-green-400 text-center lg:text-left">
+                    Recipeace
+                  </h1>
+                  <p className="block mb-2 mx-auto text-center lg:text-left">
+                    In a pinch, trying new dishes, meal prep?
+                  </p>
+                  <p className="mx-auto text-center lg:text-left">
+                    We've got you covered!
+                  </p>
+                </div>
+                <img
+                  src={illustration}
+                  alt="food illustration"
+                  className="w-3/5 mx-auto my-8"
+                />
+              </>
+            )}
+          </div>
+
           <UserInput
+            API_KEY={API_KEY}
             loading={loading}
             setLoading={setLoading}
             recipes={recipes}
             setRecipes={setRecipes}
             search={search}
             setSearch={setSearch}
+            showRecipes={showRecipes}
+            setShowRecipes={setShowRecipes}
           />
           <RecipeList
-            clearResults={clearResults}
+            hideForm={hideForm}
+            favorites={favorites}
+            setFavorites={setFavorites}
             loading={loading}
             setLoading={setLoading}
             recipes={recipes}
             setRecipes={setRecipes}
             search={search}
             setSearch={setSearch}
+            showForm={showForm}
+            setShowForm={setShowForm}
+            uniqueFavorites={uniqueFavorites}
+            setUniqueFavorites={setUniqueFavorites}
+            showRecipes={showRecipes}
+            setShowRecipes={setShowRecipes}
           />
-        </>
+        </div>
       )}
-
-      {/* <Switch>
-        <Route path="/recipe/:id" exact component={RecipeDetails} />
-        <Route path="/favorites" component={Favorites} />
-      </Switch> */}
     </div>
   );
 };
