@@ -35,7 +35,7 @@ const Main = (props, match) => {
         <></>
       ) : (
         <div className="pb-8">
-          <div className="max-w-90 mx-auto flex flex-col lg:flex-row justify-center items-center">
+          <div className="max-w-90 mx-auto lg:my-8 flex flex-col lg:flex-row justify-center items-center">
             {recipes.length > 0 ? (
               <img
                 src={illustration}
@@ -44,7 +44,7 @@ const Main = (props, match) => {
               />
             ) : (
               <>
-                <div className="mx-auto">
+                <div className="mx-auto lg:ml-auto lg:mr-0">
                   <h1 className="block mt-12 mb-4 text-6xl tracking-wider text-green-400 text-center lg:text-left">
                     Recipeace
                   </h1>
@@ -58,7 +58,7 @@ const Main = (props, match) => {
                 <img
                   src={illustration}
                   alt="food illustration"
-                  className="w-3/5 mx-auto my-8"
+                  className="lg:max-w-50 w-3/5 mx-auto my-8"
                 />
               </>
             )}
