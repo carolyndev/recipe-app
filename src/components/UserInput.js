@@ -2,15 +2,8 @@ import React from 'react';
 import { ReactComponent as SearchIcon } from '../images/search.svg';
 
 const UserInput = (props) => {
-  const {
-    API_KEY,
-    setLoading,
-    recipes,
-    setRecipes,
-    search,
-    setSearch,
-    setShowRecipes,
-  } = props;
+  const { API_KEY, setLoading, setRecipes, search, setSearch, setShowRecipes } =
+    props;
 
   const searchByRecipes = (e) => {
     e.preventDefault();
@@ -43,7 +36,7 @@ const UserInput = (props) => {
   return (
     <>
       <div className="user">
-        <div className="user__input min-w-xs max-w-50 max-h-80 mx-auto p-4 mb-8 bg-gray-50">
+        <div className="user__input min-w-xs max-w-50 max-h-80 mx-auto p-4 mb-4 bg-gray-50">
           <p className="flex mb-2 min-w-xs mx-auto text-sm text-left">
             To explore multiple ingredients or recipes at a time, separate items
             with a comma (e.g. ham, eggs, etc.).

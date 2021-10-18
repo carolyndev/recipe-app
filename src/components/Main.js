@@ -4,11 +4,9 @@ import illustration from '../images/food-illu.svg';
 import UserInput from './UserInput';
 import RecipeList from './RecipeList';
 
-const Main = (props, match) => {
-  // console.log(match);
+const Main = (props) => {
   const {
     API_KEY,
-    hideForm,
     favorites,
     setFavorites,
     loading,
@@ -34,7 +32,7 @@ const Main = (props, match) => {
       {showForm === false ? (
         <></>
       ) : (
-        <div className="pb-8">
+        <div>
           <div className="max-w-90 mx-auto lg:my-8 flex flex-col lg:flex-row justify-center items-center">
             {recipes.length > 0 ? (
               <img
@@ -76,7 +74,6 @@ const Main = (props, match) => {
             setShowRecipes={setShowRecipes}
           />
           <RecipeList
-            hideForm={hideForm}
             favorites={favorites}
             setFavorites={setFavorites}
             loading={loading}

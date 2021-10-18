@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import Header from './Header';
 import Main from './Main';
 import RecipeDetails from './RecipeDetails';
 import Favorites from './Favorites';
 import Surprise from './Surprise';
+
+const API_KEY = '50aa27339ac74c17a68aefe745b2be28';
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -15,8 +18,7 @@ const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [uniqueFavorites, setUniqueFavorites] = useState([]);
   const [recipeLoading, setRecipeLoading] = useState(false);
-
-  const API_KEY = '50aa27339ac74c17a68aefe745b2be28';
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     getLocalFavorites();
@@ -40,11 +42,10 @@ const App = () => {
     }
   };
 
-  const hideForm = () => {
-    // setRecipes([]);
-    setSearch('');
-    setShowForm(false);
-  };
+  // const hideForm = () => {
+  //   setSearch('');
+  //   setShowForm(false);
+  // };
 
   const saveLocalFavorites = () => {
     const filteredFavorites = Array.from(
@@ -84,28 +85,18 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Header
           returnHome={returnHome}
-          hideForm={hideForm}
-          recipes={recipes}
-          setRecipes={setRecipes}
-          search={search}
-          setSearch={setSearch}
-          showForm={showForm}
-          setShowForm={setShowForm}
-          loading={loading}
-          setLoading={setLoading}
-          showRecipes={showRecipes}
-          setShowRecipes={setShowRecipes}
+          counter={counter}
+          setCounter={setCounter}
         />
         <Main
           API_KEY={API_KEY}
           favorites={favorites}
           setFavorites={setFavorites}
           returnHome={returnHome}
-          hideForm={hideForm}
           showForm={showForm}
           setShowForm={setShowForm}
           loading={loading}
@@ -128,10 +119,7 @@ const App = () => {
               {...props}
               API_KEY={API_KEY}
               setShowForm={setShowForm}
-              showForm={showForm}
-              favorites={favorites}
               setFavorites={setFavorites}
-              saveLocalFavorites={saveLocalFavorites}
               recipeLoading={recipeLoading}
               setRecipeLoading={setRecipeLoading}
             />
@@ -140,27 +128,25 @@ const App = () => {
         <Route path="/favorites">
           <Favorites
             returnHome={returnHome}
-            showForm={showForm}
             setShowForm={setShowForm}
-            favorites={favorites}
             setFavorites={setFavorites}
-            recipes={recipes}
             setRecipes={setRecipes}
             uniqueFavorites={uniqueFavorites}
-            setUniqueFavorites={setUniqueFavorites}
-            saveLocalFavorites={getLocalFavorites}
           />
         </Route>
         <Route path="/surprise">
           <Surprise
             API_KEY={API_KEY}
             saveLocalFavorites={saveLocalFavorites}
-            favorites={favorites}
+            counter={counter}
+            setCounter={setCounter}
             setFavorites={setFavorites}
-            showForm={showForm}
             setShowForm={setShowForm}
-            recipeLoading={recipeLoading}
             setRecipeLoading={setRecipeLoading}
+            key={() => {
+              let count = 0;
+              count++;
+            }}
           />
         </Route>
       </Switch>
