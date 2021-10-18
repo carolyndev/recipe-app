@@ -4,21 +4,10 @@ import { ReactComponent as HeartIcon } from '../images/heart.svg';
 import { ReactComponent as TrashIcon } from '../images/trash.svg';
 
 const RecipeCard = (props) => {
-  const {
-    favorites,
-    setFavorites,
-    hideForm,
-    id,
-    title,
-    src,
-    showForm,
-    setShowForm,
-    uniqueFavorites,
-    setUniqueFavorites,
-  } = props;
+  const { favorites, setFavorites, id, title, src, showForm, uniqueFavorites } =
+    props;
 
   const addFavorites = (e) => {
-    console.log(e.target);
     e.target.classList.add('ripple');
     setFavorites((favorites) => {
       return [
@@ -33,7 +22,6 @@ const RecipeCard = (props) => {
   };
 
   const removeFavorites = (e) => {
-    console.log('remove fav');
     setFavorites(uniqueFavorites.filter((item) => item.id !== id));
   };
 
@@ -41,7 +29,6 @@ const RecipeCard = (props) => {
     <div className="recipe relative text-left py-4 px-6 mb-4 border rounded border-solid border-gray-300 border-opacity-50 shadow-lg">
       <Link
         to={`/recipe/${id}`}
-        onClick={hideForm}
         className="flex flex-col justify-between items center"
       >
         <img
