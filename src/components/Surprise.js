@@ -55,12 +55,12 @@ const Surprise = (props) => {
   return (
     <>
       {randomLoading ? (
-        <p className="h-full mt-32 flex justify-center items-end">
+        <p className="h-full mt-32 flex justify-center items-center">
           Grabbing a random recipe...
         </p>
       ) : (
         <div className="recipe-container max-w-90 mx-auto pb-8">
-          <div className="py-2 pl-2 border-b border-gray-300 flex justify-between items-center">
+          <div className="py-2 pl-2 border-b border-gray-300 flex justify-between items-end">
             <h3 className="text-xl">{randomRecipe.title}</h3>
             <span
               className="flex justify-center items-center py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded hover:text-green-400 cursor-pointer"
@@ -96,7 +96,7 @@ const Surprise = (props) => {
               </p>
             </div>
 
-            <div className="flex">
+            <div className="flex justify-center">
               <a href={randomRecipe.sourceUrl} rel="noreferrer" target="_blank">
                 <img
                   className="inline-block max-w-sm max-h-64 mx-auto rounded"
