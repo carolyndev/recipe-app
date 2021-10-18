@@ -5,6 +5,12 @@
 // header
 header {
   min-width: 23.4375rem;
+  // max-width: 90rem;
+}
+
+#root {
+  max-width: 90rem;
+  margin: 0 auto;
 }
 
 // recipe card
@@ -24,6 +30,12 @@ header {
 .recipe:hover {
   .favorite-recipe {
     opacity: 1;
+  }
+}
+
+.recipe-container {
+  > div > span {
+    min-width: 10rem;
   }
 }
 

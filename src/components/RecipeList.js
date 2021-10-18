@@ -3,21 +3,13 @@ import RecipeCard from './RecipeCard';
 
 const RecipeList = (props) => {
   const {
-    hideForm,
     favorites,
     setFavorites,
     loading,
-    setLoading,
     recipes,
     setRecipes,
-    search,
-    setSearch,
     showForm,
-    setShowForm,
     uniqueFavorites,
-    setUniqueFavorites,
-    showRecipes,
-    setShowRecipes,
   } = props;
 
   const clearResults = () => {
@@ -29,7 +21,7 @@ const RecipeList = (props) => {
   };
 
   return (
-    <>
+    <div className="recipe__list pb-8">
       {recipes.length > 0 ? (
         <>
           {loading ? (
@@ -50,7 +42,7 @@ const RecipeList = (props) => {
 
               {recipes.length > 0 ? (
                 <div
-                  className="recipe__list max-w-90 3xl:max-w-50 h-full mb-8 grid grid-auto-rows auto-cols-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:auto-cols-fr gap-4 gap-y-6 md:gap-6 lg:gap-8 mx-auto"
+                  className="max-w-90 h-full mb-8 grid grid-auto-rows auto-cols-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:auto-cols-fr gap-4 gap-y-6 md:gap-6 lg:gap-8 mx-auto"
                   id="recipe-list"
                 >
                   {recipes.map((recipe) => (
@@ -61,15 +53,8 @@ const RecipeList = (props) => {
                       id={recipe.id}
                       title={recipe.title}
                       src={recipe.image}
-                      hideForm={hideForm}
-                      loading={loading}
-                      setLoading={setLoading}
-                      search={search}
-                      setSearch={setSearch}
                       showForm={showForm}
-                      setShowForm={setShowForm}
                       uniqueFavorites={uniqueFavorites}
-                      setUniqueFavorites={setUniqueFavorites}
                     />
                   ))}
                 </div>
@@ -87,7 +72,7 @@ const RecipeList = (props) => {
       ) : (
         <> </>
       )}
-    </>
+    </div>
   );
 };
 

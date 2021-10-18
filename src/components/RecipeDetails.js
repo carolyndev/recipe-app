@@ -14,7 +14,6 @@ const RecipeDetails = (match) => {
     match.setShowForm(false);
     match.setRecipeLoading(true);
     getDetails();
-    console.log(details);
   }, [recipeID]);
 
   // fetch recipe details (api call #2)
@@ -37,7 +36,6 @@ const RecipeDetails = (match) => {
   };
 
   const addFavoritesDirect = (e) => {
-    console.log('add fav');
     match.setFavorites((favorites) => {
       return [
         ...favorites,
@@ -61,12 +59,12 @@ const RecipeDetails = (match) => {
   return (
     <div className="recipe-container h-full max-w-90 mx-auto pb-8">
       {match.recipeLoading === true ? (
-        <p className="h-full mt-16 flex justify-center items-center">
+        <p className="h-full mt-32 flex justify-center items-center">
           Loading Recipe Details...
         </p>
       ) : (
         <>
-          <div className="py-2 pl-2 border-b border-gray-300 flex justify-between items-center">
+          <div className="py-2 pl-2 border-b border-gray-300 flex justify-between items-end">
             <h3 className="text-xl">{details.title}</h3>
             <span
               className="flex justify-center items-center py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded hover:text-green-400 cursor-pointer"
@@ -100,8 +98,8 @@ const RecipeDetails = (match) => {
               </p>
             </div>
 
-            <div className="flex">
-              <a href={details.sourceUrl} target="_blank">
+            <div className="flex justify-center">
+              <a href={details.sourceUrl} rel="noreferrer" target="_blank">
                 <img
                   className="inline-block max-w-sm max-h-64 mx-auto rounded"
                   src={details.image}
