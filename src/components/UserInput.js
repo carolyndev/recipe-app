@@ -12,21 +12,20 @@ const UserInput = (props) => {
       return;
     }
     setLoading(true);
-
-    const getRecipes = async () => {
-      const response = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=12`
-      );
-      const data = await response.json();
-      console.log(data.results);
-      setRecipes(data.results);
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    };
     getRecipes();
-
     setShowRecipes(true);
+  };
+
+  const getRecipes = async () => {
+    const response = await fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=12`
+    );
+    const data = await response.json();
+    console.log(data.results);
+    setRecipes(data.results);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   };
 
   const updateSearch = (e) => {

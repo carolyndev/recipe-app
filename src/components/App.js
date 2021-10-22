@@ -42,11 +42,6 @@ const App = () => {
     }
   };
 
-  // const hideForm = () => {
-  //   setSearch('');
-  //   setShowForm(false);
-  // };
-
   const saveLocalFavorites = () => {
     const filteredFavorites = Array.from(
       new Set(favorites.map(JSON.stringify))
