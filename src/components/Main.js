@@ -47,10 +47,11 @@ const Main = (props) => {
                     Recipeace
                   </h1>
                   <p className="block mb-2 mx-auto text-center lg:text-left">
-                    In a pinch, trying new dishes, meal prep?
+                    In a culinary pinch? We've got you covered!
                   </p>
                   <p className="mx-auto text-center lg:text-left">
-                    We've got you covered!
+                    Unlock your cooking inspiration today with our recipe search
+                    & save.
                   </p>
                 </div>
                 <img
