@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
-import illustration2 from '../images/food-illu-2.png';
+import illustration2 from '../images/food-illu-2.jpg';
 
 const Favorites = (props) => {
   const { returnHome, setRecipes, setShowForm, setFavorites, uniqueFavorites } =
