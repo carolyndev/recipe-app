@@ -23,13 +23,13 @@ const Header = (props) => {
 
         <div className="nav__links">
           <ul className="flex flex-row w-full justify-end">
-            <li className="nav__link py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded">
+            <li className="nav__link py-1 px-2 border border-gray-50 ease-out duration-300 hover:bg-gray-100 hover:border-gray-200 hover:text-green-400 rounded">
               <Link to={'/favorites'} className="flex items-center">
                 <HeartIcon className="inline-block mr-2 w-5 h-5" />
                 <span className="inline-block">favorites</span>
               </Link>
             </li>
-            <li className="nav__link py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded">
+            <li className="nav__link py-1 px-2 border border-gray-50 ease-out duration-300 hover:bg-gray-100 hover:border-gray-200 hover:text-green-400 rounded">
               <Link
                 to={'/surprise'}
                 onClick={newSurprise}

@@ -18,10 +18,10 @@ const UserInput = (props) => {
 
   const getRecipes = async () => {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=12`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=13&addRecipeNutrition=true`
     );
     const data = await response.json();
-    console.log(data.results);
+    console.log(data);
     setRecipes(data.results);
     setTimeout(() => {
       setLoading(false);
@@ -54,7 +54,6 @@ const UserInput = (props) => {
 
             <button className="py-1 px-2 h-full bg-white rounded ease-out duration-300 border border-solid border-gray-300 hover:bg-gray-100 hover:text-green-400 flex items-center">
               <span className="mr-1 text-base">Search</span>
-
               <SearchIcon className="ml-1" />
             </button>
           </form>

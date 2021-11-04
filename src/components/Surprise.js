@@ -75,17 +75,17 @@ const Surprise = (props) => {
           </div>
           <div className="recipe__details max-w-75 md:flex mx-auto my-8 justify-around items-center">
             <div className="recipe__summary mb-8">
-              <a
-                href={randomRecipe.sourceUrl}
-                rel="noreferrer"
-                target="_blank"
-                className="hover:text-green-400 flex items-center"
-              >
-                <h3 className="inline-block">
+              <h3 className="inline-block">
+                <a
+                  href={randomRecipe.sourceUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                  className="hover:text-green-400 flex items-center"
+                >
                   <LinkIcon className="inline-block mr-2" />
                   Recipe from: "{randomRecipe.sourceName}"
-                </h3>
-              </a>
+                </a>
+              </h3>
               <p className="flex items-center">
                 <PeopleIcon className="mr-2" />
                 serves: {randomRecipe.servings}
@@ -135,7 +135,7 @@ const Surprise = (props) => {
               </ul>
             </div>
 
-            {randomRecipeInst.length > 0 ? (
+            {randomRecipeInst.length > 0 && (
               <div className="recipe__instructions">
                 <h4 className="ml-4 text-xl">Instructions</h4>
                 <ol className="instructions-list list-decimal pl-8">
@@ -146,8 +146,6 @@ const Surprise = (props) => {
                   ))}
                 </ol>
               </div>
-            ) : (
-              <></>
             )}
           </div>
         </div>

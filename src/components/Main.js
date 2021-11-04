@@ -21,6 +21,9 @@ const Main = (props) => {
     setUniqueFavorites,
     showRecipes,
     setShowRecipes,
+    displayedRecipes,
+    recipesPerPage,
+    setCurrentPage,
   } = props;
 
   useEffect(() => {
@@ -89,6 +92,9 @@ const Main = (props) => {
             setUniqueFavorites={setUniqueFavorites}
             showRecipes={showRecipes}
             setShowRecipes={setShowRecipes}
+            displayedRecipes={displayedRecipes}
+            recipesPerPage={recipesPerPage}
+            setCurrentPage={setCurrentPage}
           />
         </div>
       )}
