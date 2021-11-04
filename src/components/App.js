@@ -112,11 +112,15 @@ const App = () => {
           render={(props) => (
             <RecipeDetails
               {...props}
+              recipes={recipes}
               API_KEY={API_KEY}
               setShowForm={setShowForm}
               setFavorites={setFavorites}
               recipeLoading={recipeLoading}
               setRecipeLoading={setRecipeLoading}
+              saveLocalFavorites={saveLocalFavorites}
+              getLocalRecipes={getLocalRecipes}
+              saveLocalRecipes={saveLocalRecipes}
             />
           )}
         />

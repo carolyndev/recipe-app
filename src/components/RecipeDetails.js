@@ -5,10 +5,10 @@ import { ReactComponent as PeopleIcon } from '../images/people.svg';
 import { ReactComponent as PlusIcon } from '../images/plus.svg';
 
 const RecipeDetails = (match) => {
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState([]);
-  const recipeID = match.match.params.id;
+  let recipeID = parseInt(match.match.params.id);
 
   useEffect(() => {
     match.setShowForm(false);
@@ -16,24 +16,45 @@ const RecipeDetails = (match) => {
     getDetails();
   }, [recipeID]);
 
-  // fetch recipe details (api call #2)
+  const getDetails = () => {
+    const currentRecipe = match.recipes.find((item) => item.id === recipeID);
+    setDetails(currentRecipe);
 
-  const getDetails = async () => {
-    const response = await fetch(
-      `https://api.spoonacular.com/recipes/${recipeID}/information?includeNutrition=false&apiKey=${match.API_KEY}`
-    );
-    const data = await response.json();
-    setDetails(data);
-    if (data.extendedIngredients) {
-      setIngredients(data.extendedIngredients);
+    if (currentRecipe.nutrition && currentRecipe.nutrition.ingredients) {
+      console.log(currentRecipe.nutrition.ingredients);
+      setIngredients(currentRecipe.nutrition.ingredients);
     }
-    if (data.analyzedInstructions && data.analyzedInstructions[0]) {
-      setInstructions(data.analyzedInstructions[0].steps);
+    if (
+      currentRecipe.analyzedInstructions &&
+      currentRecipe.analyzedInstructions[0]
+    ) {
+      console.log(currentRecipe.analyzedInstructions[0].steps);
+      setInstructions(currentRecipe.analyzedInstructions[0].steps);
     }
+
     setTimeout(() => {
       match.setRecipeLoading(false);
     }, 500);
   };
+
+  // fetch recipe details (api call #2)
+
+  // const getDetails = async () => {
+  //   const response = await fetch(
+  //     `https://api.spoonacular.com/recipes/${recipeID}/information?includeNutrition=false&apiKey=${match.API_KEY}`
+  //   );
+  //   const data = await response.json();
+  //   setDetails(data);
+  //   if (data.extendedIngredients) {
+  //     setIngredients(data.extendedIngredients);
+  //   }
+  //   if (data.analyzedInstructions && data.analyzedInstructions[0]) {
+  //     setInstructions(data.analyzedInstructions[0].steps);
+  //   }
+  //   setTimeout(() => {
+  //     match.setRecipeLoading(false);
+  //   }, 500);
+  // };
 
   const addFavoritesDirect = (e) => {
     match.setFavorites((favorites) => {
@@ -77,17 +98,17 @@ const RecipeDetails = (match) => {
           </div>
           <div className="recipe__details max-w-75 md:flex mx-auto my-8 justify-around items-center">
             <div className="recipe__summary mb-8">
-              <a
-                href={details.sourceUrl}
-                rel="noreferrer"
-                target="_blank"
-                className="hover:text-green-400 flex items-center"
-              >
-                <h3 className="inline-block">
+              <h3 className="inline-block">
+                <a
+                  href={details.sourceUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                  className="hover:text-green-400 flex items-center"
+                >
                   <LinkIcon className="inline-block mr-2" />
                   Recipe from: "{details.sourceName}"
-                </h3>
-              </a>
+                </a>
+              </h3>
               <p className="flex items-center">
                 <PeopleIcon className="mr-2" />
                 serves: {details.servings}
@@ -124,14 +145,14 @@ const RecipeDetails = (match) => {
                       htmlFor={'ingredient' + index}
                       className="cursor-pointer"
                     >
-                      {ingredient.original}
+                      {ingredient.name}
                     </label>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {instructions.length > 0 ? (
+            {instructions.length > 0 && (
               <div className="recipe__instructions">
                 <h4 className="ml-4 text-xl">Instructions</h4>
                 <ol className="instructions-list list-decimal pl-8">
@@ -142,8 +163,6 @@ const RecipeDetails = (match) => {
                   ))}
                 </ol>
               </div>
-            ) : (
-              <></>
             )}
           </div>
         </>
