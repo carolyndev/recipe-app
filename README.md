@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+## Recipeace - discover new recipes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Designed and built by Carolyn Lau
 
-## Available Scripts
+### Overview
 
-In the project directory, you can run:
+Recipeace allows the user to discover new recipes and cooking inspiration. As an API connected app, users are able to:
 
-### `npm start`
+1.  Search for recipes by ingredient or recipe name.
+2.  Navigate between pages of search results.
+3.  View recipe details by clicking on a recipe card.
+4.  Add a recipe to the favorites list from the results page or recipe details page.
+5.  Delete items from the favorites list.
+6.  View a randomized recipe via the 'surprise me' button.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Search results and favorited recipes are saved to local storage.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### View Live Site
 
-### `npm test`
+Live site URL: [[Recipeace]](https://the-cl.github.io/recipe-app/surprise)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshots
 
-### `npm run build`
+![Recipeace](./src/images/screenshots/recipeace.png)
+![recipe details](./src/images/screenshots/recipe-details.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Tailwind CSS [[tailwindcss.com]](https://tailwindcss.com/)
+- React JS Library [[reactjs.org]](https://reactjs.org/)
+- React Router [[react-router-dom]](https://v5.reactrouter.com/web/guides/quick-start)
+- Spoonacular API [[spoonacular.com]](https://spoonacular.com/)
+- Bootstrapped with [[Create React App]](https://github.com/facebook/create-react-app)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Set-up
 
-### `npm run eject`
+1. Clone this repository to your desktop. [[https://github.com/the-cl/recipe-app.git]](https://github.com/the-cl/recipe-app.git)
+2. From your device's terminal, `cd` into the project directory.
+3. Run `npm start` to open the app in the development mode and view it in your browser. [[localhost:3000]](http://localhost:3000)
+4. Run `npm run build` to create your optimized production build.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Project Goals and Challenges
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+As a recipe discovery app, it was important for users to be able to favorite recipes, and to have access to that information even on page reload. I also wanted the option to view more search results, and therefore implemented the pagination fucntionality.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Due to the client-side-rendering nature of React Router, my application would encouter a 404 error if the user refreshed the app after navigating from the home page. A special thank you to Rafael Pedicini for the redirect script.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Continued development
 
-## Learn More
+I am growing more comfortable passing props and managing `useEffect` hooks. In future projects, I would like to implement custom hooks to manage the API calls.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+As the size of my application grows, managing state and passing props across components can get bulky. In future projects, I would like to implement a state management library such as React Redux to streamline my data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Acknowledgements
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Page refresh redirect script courtesy of [Rafael Pedicini](https://github.com/rafgraph/spa-github-pages).
