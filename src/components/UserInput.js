@@ -21,7 +21,6 @@ const UserInput = (props) => {
       `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=100&addRecipeNutrition=true`
     );
     const data = await response.json();
-    console.log(data);
     setRecipes(data.results);
     setTimeout(() => {
       setLoading(false);

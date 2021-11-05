@@ -3,15 +3,8 @@ import RecipeCard from './RecipeCard';
 import Pagination from './Pagination';
 
 const RecipeList = (props) => {
-  const {
-    favorites,
-    setFavorites,
-    loading,
-    recipes,
-    setRecipes,
-    showForm,
-    uniqueFavorites,
-  } = props;
+  const { favorites, setFavorites, loading, recipes, setRecipes, showForm } =
+    props;
 
   useEffect(() => {
     setCurrentPage(1);
@@ -68,11 +61,8 @@ const RecipeList = (props) => {
                 <Pagination
                   recipes={recipes}
                   recipesPerPage={recipesPerPage}
-                  setCurrentPage={setCurrentPage}
                   currentPage={currentPage}
-                  firstRecipeIndex={firstRecipeIndex}
-                  lastRecipeIndex={lastRecipeIndex}
-                  displayedRecipes={displayedRecipes}
+                  setCurrentPage={setCurrentPage}
                 />
               </div>
 
@@ -84,7 +74,6 @@ const RecipeList = (props) => {
                   >
                     {displayedRecipes.map((recipe) => (
                       <RecipeCard
-                        index={recipes.index}
                         favorites={favorites}
                         setFavorites={setFavorites}
                         key={recipe.id}
@@ -92,8 +81,6 @@ const RecipeList = (props) => {
                         title={recipe.title}
                         src={recipe.image}
                         showForm={showForm}
-                        uniqueFavorites={uniqueFavorites}
-                        recipes={recipes}
                       />
                     ))}
                   </div>
@@ -102,9 +89,6 @@ const RecipeList = (props) => {
                     recipesPerPage={recipesPerPage}
                     setCurrentPage={setCurrentPage}
                     currentPage={currentPage}
-                    firstRecipeIndex={firstRecipeIndex}
-                    lastRecipeIndex={lastRecipeIndex}
-                    displayedRecipes={displayedRecipes}
                   />
                 </>
               ) : (

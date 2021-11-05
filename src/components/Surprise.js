@@ -5,7 +5,7 @@ import { ReactComponent as PeopleIcon } from '../images/people.svg';
 import { ReactComponent as PlusIcon } from '../images/plus.svg';
 
 const Surprise = (props) => {
-  const { API_KEY, saveLocalFavorites, counter, setFavorites, setShowForm } =
+  const { API_KEY, counter, saveLocalFavorites, setFavorites, setShowForm } =
     props;
 
   const [randomRecipe, setRandomRecipe] = useState([]);
