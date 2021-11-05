@@ -82,7 +82,7 @@ const RecipeList = (props) => {
                     className="max-w-90 h-full mb-8 grid grid-auto-rows auto-cols-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:auto-cols-fr gap-4 gap-y-6 md:gap-6 lg:gap-8 mx-auto"
                     id="recipe-list"
                   >
-                    {displayedRecipes.map((recipe, index) => (
+                    {displayedRecipes.map((recipe) => (
                       <RecipeCard
                         index={recipes.index}
                         favorites={favorites}
