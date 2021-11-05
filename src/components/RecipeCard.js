@@ -4,17 +4,8 @@ import { ReactComponent as HeartIcon } from '../images/heart.svg';
 import { ReactComponent as TrashIcon } from '../images/trash.svg';
 
 const RecipeCard = (props) => {
-  const {
-    favorites,
-    setFavorites,
-    id,
-    title,
-    src,
-    showForm,
-    uniqueFavorites,
-    index,
-    recipes,
-  } = props;
+  const { favorites, setFavorites, id, title, src, showForm, uniqueFavorites } =
+    props;
 
   const addFavorites = (e) => {
     e.target.classList.add('ripple');

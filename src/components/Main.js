@@ -17,13 +17,7 @@ const Main = (props) => {
     setSearch,
     showForm,
     setShowForm,
-    uniqueFavorites,
-    setUniqueFavorites,
-    showRecipes,
     setShowRecipes,
-    displayedRecipes,
-    recipesPerPage,
-    setCurrentPage,
   } = props;
 
   useEffect(() => {
@@ -68,33 +62,19 @@ const Main = (props) => {
 
           <UserInput
             API_KEY={API_KEY}
-            loading={loading}
             setLoading={setLoading}
-            recipes={recipes}
             setRecipes={setRecipes}
             search={search}
             setSearch={setSearch}
-            showRecipes={showRecipes}
             setShowRecipes={setShowRecipes}
           />
           <RecipeList
             favorites={favorites}
             setFavorites={setFavorites}
             loading={loading}
-            setLoading={setLoading}
             recipes={recipes}
             setRecipes={setRecipes}
-            search={search}
-            setSearch={setSearch}
             showForm={showForm}
-            setShowForm={setShowForm}
-            uniqueFavorites={uniqueFavorites}
-            setUniqueFavorites={setUniqueFavorites}
-            showRecipes={showRecipes}
-            setShowRecipes={setShowRecipes}
-            displayedRecipes={displayedRecipes}
-            recipesPerPage={recipesPerPage}
-            setCurrentPage={setCurrentPage}
           />
         </div>
       )}

@@ -4,7 +4,7 @@ import RecipeCard from './RecipeCard';
 import illustration2 from '../images/food-illu-2.jpg';
 
 const Favorites = (props) => {
-  const { returnHome, setRecipes, setShowForm, setFavorites, uniqueFavorites } =
+  const { returnHome, uniqueFavorites, setFavorites, setRecipes, setShowForm } =
     props;
 
   useEffect(() => {

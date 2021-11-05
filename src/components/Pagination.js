@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Pagination = (props) => {
-  const { recipes, recipesPerPage, setCurrentPage, currentPage } = props;
+  const { recipes, recipesPerPage, currentPage, setCurrentPage } = props;
 
   const pageNumbers = [];
   const totalPages = Math.ceil(recipes.length / recipesPerPage);
@@ -9,9 +9,6 @@ const Pagination = (props) => {
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
-
-  console.log(typeof currentPage);
-  console.log(typeof pageNumbers[0]);
 
   const goToPage = (e) => {
     setCurrentPage(parseInt(e.target.innerText));
@@ -23,7 +20,7 @@ const Pagination = (props) => {
         <button
           key={pageNum}
           className={
-            currentPage == pageNum
+            currentPage === pageNum
               ? 'border px-2 py-1 mr-1 rounded underline text-green-400 pointer-events-none'
               : 'hover:text-green-400 border px-2 py-1 mr-1 rounded cursor-pointer'
           }

@@ -91,15 +91,14 @@ const App = () => {
           API_KEY={API_KEY}
           favorites={favorites}
           setFavorites={setFavorites}
-          returnHome={returnHome}
-          showForm={showForm}
-          setShowForm={setShowForm}
           loading={loading}
           setLoading={setLoading}
           recipes={recipes}
           setRecipes={setRecipes}
           search={search}
           setSearch={setSearch}
+          showForm={showForm}
+          setShowForm={setShowForm}
           showRecipes={showRecipes}
           setShowRecipes={setShowRecipes}
         />
@@ -112,40 +111,32 @@ const App = () => {
           render={(props) => (
             <RecipeDetails
               {...props}
-              recipes={recipes}
               API_KEY={API_KEY}
+              saveLocalFavorites={saveLocalFavorites}
+              getLocalRecipes={getLocalRecipes}
               setShowForm={setShowForm}
               setFavorites={setFavorites}
               recipeLoading={recipeLoading}
               setRecipeLoading={setRecipeLoading}
-              saveLocalFavorites={saveLocalFavorites}
-              getLocalRecipes={getLocalRecipes}
-              saveLocalRecipes={saveLocalRecipes}
             />
           )}
         />
         <Route path="/favorites">
           <Favorites
             returnHome={returnHome}
-            setShowForm={setShowForm}
+            uniqueFavorites={uniqueFavorites}
             setFavorites={setFavorites}
             setRecipes={setRecipes}
-            uniqueFavorites={uniqueFavorites}
+            setShowForm={setShowForm}
           />
         </Route>
         <Route path="/surprise">
           <Surprise
             API_KEY={API_KEY}
-            saveLocalFavorites={saveLocalFavorites}
             counter={counter}
-            setCounter={setCounter}
+            saveLocalFavorites={saveLocalFavorites}
             setFavorites={setFavorites}
             setShowForm={setShowForm}
-            setRecipeLoading={setRecipeLoading}
-            key={() => {
-              let count = 0;
-              count++;
-            }}
           />
         </Route>
       </Switch>

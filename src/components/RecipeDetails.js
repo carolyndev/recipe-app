@@ -16,27 +16,6 @@ const RecipeDetails = (match) => {
     getDetails();
   }, [recipeID]);
 
-  // const getDetails = () => {
-  //   const currentRecipe = match.recipes.find((item) => item.id === recipeID);
-  //   setDetails(currentRecipe);
-
-  //   if (currentRecipe.nutrition && currentRecipe.nutrition.ingredients) {
-  //     console.log(currentRecipe.nutrition.ingredients);
-  //     setIngredients(currentRecipe.nutrition.ingredients);
-  //   }
-  //   if (
-  //     currentRecipe.analyzedInstructions &&
-  //     currentRecipe.analyzedInstructions[0]
-  //   ) {
-  //     console.log(currentRecipe.analyzedInstructions[0].steps);
-  //     setInstructions(currentRecipe.analyzedInstructions[0].steps);
-  //   }
-
-  //   setTimeout(() => {
-  //     match.setRecipeLoading(false);
-  //   }, 500);
-  // };
-
   // fetch recipe details (api call #2)
 
   const getDetails = async () => {
@@ -74,8 +53,6 @@ const RecipeDetails = (match) => {
   const animationReset = (e) => {
     e.target.classList.remove('ripple');
   };
-
-  //
 
   return (
     <div className="recipe-container h-full max-w-90 mx-auto pb-8">
