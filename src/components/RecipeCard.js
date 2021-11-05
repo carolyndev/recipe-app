@@ -34,15 +34,10 @@ const RecipeCard = (props) => {
     setFavorites(uniqueFavorites.filter((item) => item.id !== id));
   };
 
-  // const saveLocalDetails = () => {
-  //   localStorage.setItem('details', JSON.stringify(details));
-  // };
-
   return (
     <div className="recipe relative text-left py-4 px-6 mb-4 border rounded border-solid border-gray-300 border-opacity-50 shadow-lg">
       <Link
         to={`/recipe/${id}`}
-        // onClick={saveLocalDetails}
         className="flex flex-col justify-between items center"
       >
         <img

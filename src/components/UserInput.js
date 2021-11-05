@@ -18,7 +18,7 @@ const UserInput = (props) => {
 
   const getRecipes = async () => {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=13&addRecipeNutrition=true`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=100&addRecipeNutrition=true`
     );
     const data = await response.json();
     console.log(data);

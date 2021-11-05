@@ -16,45 +16,45 @@ const RecipeDetails = (match) => {
     getDetails();
   }, [recipeID]);
 
-  const getDetails = () => {
-    const currentRecipe = match.recipes.find((item) => item.id === recipeID);
-    setDetails(currentRecipe);
+  // const getDetails = () => {
+  //   const currentRecipe = match.recipes.find((item) => item.id === recipeID);
+  //   setDetails(currentRecipe);
 
-    if (currentRecipe.nutrition && currentRecipe.nutrition.ingredients) {
-      console.log(currentRecipe.nutrition.ingredients);
-      setIngredients(currentRecipe.nutrition.ingredients);
-    }
-    if (
-      currentRecipe.analyzedInstructions &&
-      currentRecipe.analyzedInstructions[0]
-    ) {
-      console.log(currentRecipe.analyzedInstructions[0].steps);
-      setInstructions(currentRecipe.analyzedInstructions[0].steps);
-    }
-
-    setTimeout(() => {
-      match.setRecipeLoading(false);
-    }, 500);
-  };
-
-  // fetch recipe details (api call #2)
-
-  // const getDetails = async () => {
-  //   const response = await fetch(
-  //     `https://api.spoonacular.com/recipes/${recipeID}/information?includeNutrition=false&apiKey=${match.API_KEY}`
-  //   );
-  //   const data = await response.json();
-  //   setDetails(data);
-  //   if (data.extendedIngredients) {
-  //     setIngredients(data.extendedIngredients);
+  //   if (currentRecipe.nutrition && currentRecipe.nutrition.ingredients) {
+  //     console.log(currentRecipe.nutrition.ingredients);
+  //     setIngredients(currentRecipe.nutrition.ingredients);
   //   }
-  //   if (data.analyzedInstructions && data.analyzedInstructions[0]) {
-  //     setInstructions(data.analyzedInstructions[0].steps);
+  //   if (
+  //     currentRecipe.analyzedInstructions &&
+  //     currentRecipe.analyzedInstructions[0]
+  //   ) {
+  //     console.log(currentRecipe.analyzedInstructions[0].steps);
+  //     setInstructions(currentRecipe.analyzedInstructions[0].steps);
   //   }
+
   //   setTimeout(() => {
   //     match.setRecipeLoading(false);
   //   }, 500);
   // };
+
+  // fetch recipe details (api call #2)
+
+  const getDetails = async () => {
+    const response = await fetch(
+      `https://api.spoonacular.com/recipes/${recipeID}/information?includeNutrition=false&apiKey=${match.API_KEY}`
+    );
+    const data = await response.json();
+    setDetails(data);
+    if (data.extendedIngredients) {
+      setIngredients(data.extendedIngredients);
+    }
+    if (data.analyzedInstructions && data.analyzedInstructions[0]) {
+      setInstructions(data.analyzedInstructions[0].steps);
+    }
+    setTimeout(() => {
+      match.setRecipeLoading(false);
+    }, 500);
+  };
 
   const addFavoritesDirect = (e) => {
     match.setFavorites((favorites) => {
@@ -115,7 +115,7 @@ const RecipeDetails = (match) => {
               </p>
               <p className="flex items-center">
                 <TimerIcon className="mr-2" />
-                total time: {details.readyInMinutes}
+                total time: {details.readyInMinutes} mins
               </p>
             </div>
 
@@ -145,7 +145,7 @@ const RecipeDetails = (match) => {
                       htmlFor={'ingredient' + index}
                       className="cursor-pointer"
                     >
-                      {ingredient.name}
+                      {ingredient.original}
                     </label>
                   </li>
                 ))}
