@@ -13,7 +13,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
-  "homepage": "https://the-cl.github.io/recipe-app",
+  "homepage": "https://carolyndev.github.io/recipeace",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
