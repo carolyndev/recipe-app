@@ -17,7 +17,7 @@ Search results and favorited recipes are saved to local storage.
 
 ### View Live Site
 
-Live site URL: [[https://carolyndev.github.io/recipe-app]](https://carolyndev.github.io/recipe-app)
+Live site URL: [[https://carolyndev.github.io/recipeace]](https://carolyndev.github.io/recipeace)
 
 ### Screenshots
 
@@ -34,7 +34,7 @@ Live site URL: [[https://carolyndev.github.io/recipe-app]](https://carolyndev.gi
 
 ### Set-up
 
-1. Clone this repository to your desktop. [[https://github.com/carolyndev/recipe-app.git]](https://github.com/carolyndev/recipe-app.git)
+1. Clone this repository to your desktop. [[https://github.com/carolyndev/recipeace.git]](https://github.com/carolyndev/recipeace.git)
 2. From your device's terminal, `cd` into the project directory.
 3. Run `npm start` to open the app in the development mode and view it in your browser. [[localhost:3000]](http://localhost:3000)
 4. Run `npm run build` to create your optimized production build.
