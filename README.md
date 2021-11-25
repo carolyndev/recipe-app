@@ -1,6 +1,6 @@
 ## Recipeace - discover new recipes
 
-#### Designed and built by Carolyn Lau
+Designed and built by Carolyn Lau
 
 ### Overview
 
@@ -15,14 +15,14 @@ Recipeace allows users to discover new recipes and cooking inspiration. As an AP
 
 Search results and favorited recipes are saved to local storage.
 
-#### View Live Site
+### View Live Site
 
-Live site URL: [[Recipeace]](https://the-cl.github.io/recipe-app/surprise)
+Live site URL: [[https://carolyndev.github.io/recipe-app/surprise]](https://carolyndev.github.io/recipe-app/surprise)
 
 ### Screenshots
 
-![Recipeace](./src/images/screenshots/recipeace.png)
-![recipe details](./src/images/screenshots/recipe-details.png)
+![recipeace-landing](./src/images/screenshots/recipeace.png)
+![recipe-details](./src/images/screenshots/recipe-details.png)
 
 ### Built with
 
@@ -34,7 +34,7 @@ Live site URL: [[Recipeace]](https://the-cl.github.io/recipe-app/surprise)
 
 ### Set-up
 
-1. Clone this repository to your desktop. [[https://github.com/the-cl/recipe-app.git]](https://github.com/the-cl/recipe-app.git)
+1. Clone this repository to your desktop. [[https://github.com/carolyndev/recipe-app.git]](https://github.com/carolyndev/recipe-app.git)
 2. From your device's terminal, `cd` into the project directory.
 3. Run `npm start` to open the app in the development mode and view it in your browser. [[localhost:3000]](http://localhost:3000)
 4. Run `npm run build` to create your optimized production build.
