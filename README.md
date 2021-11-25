@@ -17,7 +17,7 @@ Search results and favorited recipes are saved to local storage.
 
 ### View Live Site
 
-Live site URL: [[https://carolyndev.github.io/recipe-app/surprise]](https://carolyndev.github.io/recipe-app/surprise)
+Live site URL: [[https://carolyndev.github.io/recipe-app]](https://carolyndev.github.io/recipe-app)
 
 ### Screenshots
 
