@@ -2,8 +2,7 @@ import React from 'react';
 import { ReactComponent as SearchIcon } from '../images/search.svg';
 
 const UserInput = (props) => {
-  const { API_KEY, setLoading, setRecipes, search, setSearch, setShowRecipes } =
-    props;
+  const { API_KEY, setLoading, setRecipes, search, setSearch } = props;
 
   const searchByRecipes = (e) => {
     e.preventDefault();
@@ -13,18 +12,19 @@ const UserInput = (props) => {
     }
     setLoading(true);
     getRecipes();
-    setShowRecipes(true);
   };
 
   const getRecipes = async () => {
-    const response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=100&addRecipeNutrition=true`
-    );
-    const data = await response.json();
-    setRecipes(data.results);
-    setTimeout(() => {
+    const url = `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=100&addRecipeNutrition=true`;
+
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      setRecipes(data.results);
       setLoading(false);
-    }, 500);
+    } else {
+      console.log(response.statusText);
+    }
   };
 
   const updateSearch = (e) => {

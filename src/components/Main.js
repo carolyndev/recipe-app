@@ -17,7 +17,6 @@ const Main = (props) => {
     setSearch,
     showForm,
     setShowForm,
-    setShowRecipes,
   } = props;
 
   useEffect(() => {
@@ -66,7 +65,6 @@ const Main = (props) => {
             setRecipes={setRecipes}
             search={search}
             setSearch={setSearch}
-            setShowRecipes={setShowRecipes}
           />
           <RecipeList
             favorites={favorites}
