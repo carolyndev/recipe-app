@@ -8,7 +8,6 @@ import loadinggif from '../images/loading.gif';
 const Surprise = (props) => {
   const { API_KEY, counter, saveLocalFavorites, setFavorites, setShowForm } =
     props;
-
   const [randomRecipe, setRandomRecipe] = useState([]);
   const [randomRecipeIng, setRandomRecipeIng] = useState([]);
   const [randomRecipeInst, setRandomRecipeInst] = useState([]);
@@ -21,21 +20,23 @@ const Surprise = (props) => {
   }, [counter]);
 
   const getRandomRecipe = async () => {
-    const response = await fetch(
-      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${API_KEY}`
-    );
-    const res = await response.json();
-    const data = res.recipes[0];
-    setRandomRecipe(data);
-    if (data.extendedIngredients) {
-      setRandomRecipeIng(data.extendedIngredients);
-    }
-    if (data.analyzedInstructions && data.analyzedInstructions[0]) {
-      setRandomRecipeInst(data.analyzedInstructions[0].steps);
-    }
-    setTimeout(() => {
+    const url = `https://api.spoonacular.com/recipes/random?number=1&apiKey=${API_KEY}`;
+
+    const response = await fetch(url);
+    if (response.ok) {
+      const res = await response.json();
+      const data = res.recipes[0];
+      setRandomRecipe(data);
+      if (data.extendedIngredients) {
+        setRandomRecipeIng(data.extendedIngredients);
+      }
+      if (data.analyzedInstructions && data.analyzedInstructions[0]) {
+        setRandomRecipeInst(data.analyzedInstructions[0].steps);
+      }
       setRandomLoading(false);
-    }, 1000);
+    } else {
+      console.log(response.statusText);
+    }
   };
 
   const addRandomFavorite = (e) => {

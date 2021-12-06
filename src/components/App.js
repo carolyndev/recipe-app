@@ -14,7 +14,7 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [showRecipes, setShowRecipes] = useState(true);
+  // const [showRecipes, setShowRecipes] = useState(true);
   const [favorites, setFavorites] = useState([]);
   const [uniqueFavorites, setUniqueFavorites] = useState([]);
   const [recipeLoading, setRecipeLoading] = useState(false);
@@ -99,8 +99,6 @@ const App = () => {
           setSearch={setSearch}
           showForm={showForm}
           setShowForm={setShowForm}
-          showRecipes={showRecipes}
-          setShowRecipes={setShowRecipes}
         />
       </div>
 
