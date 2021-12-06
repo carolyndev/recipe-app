@@ -4,8 +4,15 @@ import Pagination from './Pagination';
 import loadinggif from '../images/loading.gif';
 
 const RecipeList = (props) => {
-  const { favorites, setFavorites, loading, recipes, setRecipes, showForm } =
-    props;
+  const {
+    animationReset,
+    favorites,
+    setFavorites,
+    loading,
+    recipes,
+    setRecipes,
+    showForm,
+  } = props;
 
   useEffect(() => {
     setCurrentPage(1);
@@ -27,19 +34,19 @@ const RecipeList = (props) => {
   };
 
   return (
-    <div className="recipe__list pb-8">
+    <div className="recipe__results pb-8">
       <>
         {loading ? (
           <>
-            <div className="max-w-90 mx-auto mb-4">
-              <h3 className="mb-8">Search Results</h3>
-              <p className="max-w-90 mx-auto text-center flex justify-center items-center">
+            <div className="pagination-info max-w-90 mx-auto mb-4">
+              <h3 className="loading-title mb-8">Search Results</h3>
+              <p className="loading-desc max-w-90 mx-auto text-center flex justify-center items-center">
                 Grabbing some recipes
                 <span className="ml-1">
                   <img
                     src={loadinggif}
                     alt="loading"
-                    className="inline-block w-4"
+                    className="loading-img inline-block w-4"
                   />
                 </span>
               </p>
@@ -49,9 +56,9 @@ const RecipeList = (props) => {
           <>
             {recipes.length > 0 && (
               <>
-                <div>
-                  <div className="flex justify-between items-center max-w-90 mx-auto mb-2">
-                    <h3>
+                <div className="pagination">
+                  <div className="pagination-info flex justify-between items-center max-w-90 mx-auto mb-2">
+                    <h3 className="pagination-title">
                       Search Results: #
                       <span className="mr-2">
                         {firstRecipeIndex + 1} - #
@@ -87,6 +94,7 @@ const RecipeList = (props) => {
                       title={recipe.title}
                       src={recipe.image}
                       showForm={showForm}
+                      animationReset={animationReset}
                     />
                   ))}
                 </div>

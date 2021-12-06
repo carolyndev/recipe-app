@@ -15,14 +15,14 @@ const Pagination = (props) => {
   };
 
   return (
-    <div className="flex justify-center items-center max-w-90 mx-auto mb-4">
+    <div className="pagination-pages flex justify-center items-center max-w-90 mx-auto mb-4">
       {pageNumbers.map((pageNum) => (
         <button
           key={pageNum}
           className={
             currentPage === pageNum
-              ? 'border px-2 py-1 mr-1 rounded underline text-green-400 pointer-events-none'
-              : 'hover:text-green-400 border px-2 py-1 mr-1 rounded cursor-pointer'
+              ? 'page-link border px-2 py-1 mr-1 rounded underline text-green-400 pointer-events-none'
+              : 'page-link hover:text-green-400 border px-2 py-1 mr-1 rounded cursor-pointer'
           }
           onClick={goToPage}
         >

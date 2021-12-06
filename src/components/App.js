@@ -79,6 +79,10 @@ const App = () => {
     }
   };
 
+  const animationReset = (e) => {
+    e.target.classList.remove('ripple');
+  };
+
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
@@ -89,6 +93,7 @@ const App = () => {
         />
         <Main
           API_KEY={API_KEY}
+          animationReset={animationReset}
           favorites={favorites}
           setFavorites={setFavorites}
           loading={loading}
@@ -110,6 +115,7 @@ const App = () => {
             <RecipeDetails
               {...props}
               API_KEY={API_KEY}
+              animationReset={animationReset}
               saveLocalFavorites={saveLocalFavorites}
               getLocalRecipes={getLocalRecipes}
               setShowForm={setShowForm}
@@ -131,6 +137,7 @@ const App = () => {
         <Route path="/surprise">
           <Surprise
             API_KEY={API_KEY}
+            animationReset={animationReset}
             counter={counter}
             saveLocalFavorites={saveLocalFavorites}
             setFavorites={setFavorites}
