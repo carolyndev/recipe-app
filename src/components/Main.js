@@ -31,7 +31,7 @@ const Main = (props) => {
       ) : (
         <div>
           <div className="max-w-90 mx-auto lg:my-8 flex flex-col lg:flex-row justify-center items-center">
-            {(recipes.length | loading) > 0 ? (
+            {(recipes.length > 0) | loading ? (
               <img
                 src={illustration}
                 alt="food illustration"
