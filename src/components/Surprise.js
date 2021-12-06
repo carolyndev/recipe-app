@@ -3,6 +3,7 @@ import { ReactComponent as LinkIcon } from '../images/link.svg';
 import { ReactComponent as TimerIcon } from '../images/stopwatch.svg';
 import { ReactComponent as PeopleIcon } from '../images/people.svg';
 import { ReactComponent as PlusIcon } from '../images/plus.svg';
+import loadinggif from '../images/loading.gif';
 
 const Surprise = (props) => {
   const { API_KEY, counter, saveLocalFavorites, setFavorites, setShowForm } =
@@ -56,7 +57,10 @@ const Surprise = (props) => {
     <>
       {randomLoading ? (
         <p className="h-full mt-32 flex justify-center items-center">
-          Grabbing a random recipe...
+          Grabbing a random recipe
+          <span className="ml-1">
+            <img src={loadinggif} alt="loading" className="inline-block w-4" />
+          </span>
         </p>
       ) : (
         <div className="recipe-container max-w-90 mx-auto pb-8">
