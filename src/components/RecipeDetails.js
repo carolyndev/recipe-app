@@ -50,24 +50,20 @@ const RecipeDetails = (match) => {
     e.target.classList.add('ripple');
   };
 
-  const animationReset = (e) => {
-    e.target.classList.remove('ripple');
-  };
-
   return (
     <div className="recipe-container h-full max-w-90 mx-auto pb-8">
       {match.recipeLoading === true ? (
-        <p className="h-full mt-32 flex justify-center items-center">
-          Loading Recipe Details...
+        <p className="loading-desc h-full mt-32 flex justify-center items-center">
+          Grabbing Recipe Details...
         </p>
       ) : (
         <>
-          <div className="py-2 pl-2 border-b border-gray-300 flex justify-between items-end">
-            <h3 className="text-xl">{details.title}</h3>
+          <div className="recipe__header py-2 pl-2 border-b border-gray-300 flex justify-between items-end">
+            <h3 className="header-title text-xl">{details.title}</h3>
             <span
-              className="flex justify-center items-center py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded hover:text-green-400 cursor-pointer"
+              className="header-favorite flex justify-center items-center py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded hover:text-green-400 cursor-pointer"
               onClick={addFavoritesDirect}
-              onAnimationEnd={animationReset}
+              onAnimationEnd={match.animationReset}
             >
               add to favorites
               <PlusIcon className="ml-2 w-5 h-5" />
@@ -108,27 +104,28 @@ const RecipeDetails = (match) => {
           </div>
 
           <div className="recipe__information max-w-75 mx-auto">
-            <div className="recipe__ingredients mb-8">
-              <h4 className="ml-4 text-xl">Ingredients</h4>
-              <ul className="ingredients-list pl-2">
-                {ingredients.map((ingredient, index) => (
-                  <li key={index}>
-                    <input
-                      type="checkbox"
-                      id={'ingredient' + index}
-                      className="mr-2 cursor-pointer"
-                    />
-                    <label
-                      htmlFor={'ingredient' + index}
-                      className="cursor-pointer"
-                    >
-                      {ingredient.original}
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+            {ingredients.length > 0 && (
+              <div className="recipe__ingredients mb-8">
+                <h4 className="ml-4 text-xl">Ingredients</h4>
+                <ul className="ingredients-list pl-2">
+                  {ingredients.map((ingredient, index) => (
+                    <li key={index}>
+                      <input
+                        type="checkbox"
+                        id={'ingredient' + index}
+                        className="mr-2 cursor-pointer"
+                      />
+                      <label
+                        htmlFor={'ingredient' + index}
+                        className="cursor-pointer"
+                      >
+                        {ingredient.original}
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {instructions.length > 0 && (
               <div className="recipe__instructions">
                 <h4 className="ml-4 text-xl">Instructions</h4>

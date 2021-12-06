@@ -6,8 +6,14 @@ import { ReactComponent as PlusIcon } from '../images/plus.svg';
 import loadinggif from '../images/loading.gif';
 
 const Surprise = (props) => {
-  const { API_KEY, counter, saveLocalFavorites, setFavorites, setShowForm } =
-    props;
+  const {
+    API_KEY,
+    animationReset,
+    counter,
+    saveLocalFavorites,
+    setFavorites,
+    setShowForm,
+  } = props;
   const [randomRecipe, setRandomRecipe] = useState([]);
   const [randomRecipeIng, setRandomRecipeIng] = useState([]);
   const [randomRecipeInst, setRandomRecipeInst] = useState([]);
@@ -57,22 +63,24 @@ const Surprise = (props) => {
   return (
     <>
       {randomLoading ? (
-        <p className="h-full mt-32 flex justify-center items-center">
+        <p className="loading-desc h-full mt-32 flex justify-center items-center">
           Grabbing a random recipe
           <span className="ml-1">
-            <img src={loadinggif} alt="loading" className="inline-block w-4" />
+            <img
+              src={loadinggif}
+              alt="loading"
+              className="loading-img inline-block w-4"
+            />
           </span>
         </p>
       ) : (
         <div className="recipe-container max-w-90 mx-auto pb-8">
-          <div className="py-2 pl-2 border-b border-gray-300 flex justify-between items-end">
-            <h3 className="text-xl">{randomRecipe.title}</h3>
+          <div className="recipe__header py-2 pl-2 border-b border-gray-300 flex justify-between items-end">
+            <h3 className="header-title text-xl">{randomRecipe.title}</h3>
             <span
-              className="flex justify-center items-center py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded hover:text-green-400 cursor-pointer"
+              className="header-favorite flex justify-center items-center py-1 px-2 border border-gray-50 hover:bg-gray-100 hover:border-gray-200 rounded hover:text-green-400 cursor-pointer"
               onClick={addRandomFavorite}
-              onAnimationEnd={(e) => {
-                e.target.classList.remove('ripple');
-              }}
+              onAnimationEnd={animationReset}
             >
               add to favorites
               <PlusIcon className="ml-2 w-5 h-5" />
@@ -101,7 +109,7 @@ const Surprise = (props) => {
               </p>
             </div>
 
-            <div className="flex justify-center">
+            <div className="recipe__image flex justify-center">
               <a href={randomRecipe.sourceUrl} rel="noreferrer" target="_blank">
                 <img
                   className="inline-block max-w-sm max-h-64 mx-auto rounded"
@@ -114,30 +122,30 @@ const Surprise = (props) => {
 
           <div className="recipe__information max-w-75 mx-auto">
             <div className="recipe__ingredients mb-8">
-              <h4 className="ml-4 text-xl">Ingredients</h4>
-              <ul className="ingredients-list pl-2">
-                {randomRecipeIng.length > 0 ? (
-                  <>
+              {randomRecipeIng.length > 0 && (
+                <>
+                  <h4 className="ingredients-title ml-4 text-xl">
+                    Ingredients
+                  </h4>
+                  <ul className="ingredients-list pl-2">
                     {randomRecipeIng.map((ingredient, index) => (
                       <li key={index}>
                         <input
                           type="checkbox"
                           id={'ingredient' + index}
-                          className="mr-2 cursor-pointer"
+                          className="ingredient mr-2 cursor-pointer"
                         />
                         <label
                           htmlFor={'ingredient' + index}
-                          className="cursor-pointer"
+                          className="ingredient-label cursor-pointer"
                         >
                           {ingredient.original}
                         </label>
                       </li>
                     ))}
-                  </>
-                ) : (
-                  <></>
-                )}
-              </ul>
+                  </ul>
+                </>
+              )}
             </div>
 
             {randomRecipeInst.length > 0 && (

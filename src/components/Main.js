@@ -7,6 +7,7 @@ import RecipeList from './RecipeList';
 const Main = (props) => {
   const {
     API_KEY,
+    animationReset,
     favorites,
     setFavorites,
     loading,
@@ -25,27 +26,25 @@ const Main = (props) => {
 
   return (
     <div className="main">
-      {showForm === false ? (
-        <></>
-      ) : (
-        <div>
-          <div className="max-w-90 mx-auto lg:my-8 flex flex-col lg:flex-row justify-center items-center">
+      {showForm && (
+        <>
+          <div className="hero max-w-90 mx-auto lg:my-8 flex flex-col lg:flex-row justify-center items-center">
             {(recipes.length > 0) | loading ? (
               <img
                 src={illustration}
                 alt="food illustration"
-                className="w-1/2 md:w-2/5 lg:w-3/12 mx-auto my-8"
+                className="hero-image w-1/2 md:w-2/5 lg:w-3/12 mx-auto my-8"
               />
             ) : (
               <>
-                <div className="mx-auto lg:ml-auto lg:mr-0">
-                  <h1 className="block mt-12 mb-4 text-6xl tracking-wider text-green-400 text-center lg:text-left">
+                <div className="hero__text mx-auto lg:ml-auto lg:mr-0">
+                  <h1 className="hero-title block mt-12 mb-4 text-6xl tracking-wider text-green-400 text-center lg:text-left">
                     Recipeace
                   </h1>
-                  <p className="block mb-2 mx-auto text-center lg:text-left">
+                  <p className="hero-desc block mb-2 mx-auto text-center lg:text-left">
                     In a culinary pinch? We've got you covered!
                   </p>
-                  <p className="mx-auto text-center lg:text-left">
+                  <p className="hero-desc mx-auto text-center lg:text-left">
                     Unlock your cooking inspiration today with our recipe search
                     & save.
                   </p>
@@ -53,7 +52,7 @@ const Main = (props) => {
                 <img
                   src={illustration}
                   alt="food illustration"
-                  className="lg:max-w-50 w-3/5 mx-auto my-8"
+                  className="hero-image lg:max-w-50 w-3/5 mx-auto my-8"
                 />
               </>
             )}
@@ -67,6 +66,7 @@ const Main = (props) => {
             setSearch={setSearch}
           />
           <RecipeList
+            animationReset={animationReset}
             favorites={favorites}
             setFavorites={setFavorites}
             loading={loading}
@@ -74,7 +74,7 @@ const Main = (props) => {
             setRecipes={setRecipes}
             showForm={showForm}
           />
-        </div>
+        </>
       )}
     </div>
   );
