@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import illustration from '../images/food-illu.svg';
 
 import UserInput from './UserInput';
@@ -19,6 +19,8 @@ const Main = (props) => {
     showForm,
     setShowForm,
   } = props;
+
+  const [matches, setMatches] = useState(true);
 
   useEffect(() => {
     setShowForm(true);
@@ -61,6 +63,7 @@ const Main = (props) => {
           <UserInput
             API_KEY={API_KEY}
             setLoading={setLoading}
+            setMatches={setMatches}
             setRecipes={setRecipes}
             search={search}
             setSearch={setSearch}
@@ -70,6 +73,7 @@ const Main = (props) => {
             favorites={favorites}
             setFavorites={setFavorites}
             loading={loading}
+            matches={matches}
             recipes={recipes}
             setRecipes={setRecipes}
             showForm={showForm}

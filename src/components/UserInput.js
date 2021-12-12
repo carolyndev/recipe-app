@@ -2,7 +2,8 @@ import React from 'react';
 import { ReactComponent as SearchIcon } from '../images/search.svg';
 
 const UserInput = (props) => {
-  const { API_KEY, setLoading, setRecipes, search, setSearch } = props;
+  const { API_KEY, setLoading, setMatches, setRecipes, search, setSearch } =
+    props;
 
   const searchByRecipes = (e) => {
     e.preventDefault();
@@ -20,7 +21,9 @@ const UserInput = (props) => {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      setRecipes(data.results);
+      console.log(data);
+      data.results.length > 0 ? setRecipes(data.results) : setMatches(false);
+      // setRecipes(data.results);
       setLoading(false);
     } else {
       console.log(response.statusText);

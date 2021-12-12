@@ -9,6 +9,7 @@ const RecipeList = (props) => {
     favorites,
     setFavorites,
     loading,
+    matches,
     recipes,
     setRecipes,
     showForm,
@@ -54,6 +55,16 @@ const RecipeList = (props) => {
           </>
         ) : (
           <>
+            {!matches && (
+              <div className="pagination-info max-w-90 mx-auto mb-4">
+                <h3 className="loading-title mb-8">Search Results</h3>
+                <p>
+                  Sorry, we don't have any recipes that match that phrase. Try
+                  searching a different ingredient or recipe!
+                </p>
+              </div>
+            )}
+
             {recipes.length > 0 && (
               <>
                 <div className="pagination">

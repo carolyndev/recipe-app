@@ -14,7 +14,6 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  // const [showRecipes, setShowRecipes] = useState(true);
   const [favorites, setFavorites] = useState([]);
   const [uniqueFavorites, setUniqueFavorites] = useState([]);
   const [recipeLoading, setRecipeLoading] = useState(false);
