@@ -19,6 +19,8 @@ const App = () => {
   const [recipeLoading, setRecipeLoading] = useState(false);
   const [counter, setCounter] = useState(0);
 
+  const inputField = document.querySelector('#input-text');
+
   useEffect(() => {
     getLocalFavorites();
     getLocalRecipes();
@@ -35,10 +37,7 @@ const App = () => {
   const returnHome = () => {
     setSearch('');
     setShowForm(true);
-    const inputField = document.querySelector('#input-text');
-    if (inputField) {
-      inputField.value = '';
-    }
+    inputField.value = '';
   };
 
   const saveLocalFavorites = () => {
@@ -93,6 +92,7 @@ const App = () => {
         <Main
           API_KEY={API_KEY}
           animationReset={animationReset}
+          inputField={inputField}
           favorites={favorites}
           setFavorites={setFavorites}
           loading={loading}

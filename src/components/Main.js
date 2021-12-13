@@ -8,6 +8,7 @@ const Main = (props) => {
   const {
     API_KEY,
     animationReset,
+    inputField,
     favorites,
     setFavorites,
     loading,
@@ -31,7 +32,7 @@ const Main = (props) => {
       {showForm && (
         <>
           <div className="hero max-w-90 mx-auto lg:my-8 flex flex-col lg:flex-row justify-center items-center">
-            {(recipes.length > 0) | loading ? (
+            {(recipes.length > 0) | loading | !matches ? (
               <img
                 src={illustration}
                 alt="food illustration"
@@ -70,10 +71,12 @@ const Main = (props) => {
           />
           <RecipeList
             animationReset={animationReset}
+            inputField={inputField}
             favorites={favorites}
             setFavorites={setFavorites}
             loading={loading}
             matches={matches}
+            setMatches={setMatches}
             recipes={recipes}
             setRecipes={setRecipes}
             showForm={showForm}

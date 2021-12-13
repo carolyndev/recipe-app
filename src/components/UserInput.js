@@ -21,13 +21,21 @@ const UserInput = (props) => {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
-      data.results.length > 0 ? setRecipes(data.results) : setMatches(false);
-      // setRecipes(data.results);
-      setLoading(false);
+      populateRecipes(data);
     } else {
       console.log(response.statusText);
     }
+  };
+
+  const populateRecipes = (data) => {
+    if (data.results.length > 0) {
+      setRecipes(data.results);
+      setMatches(true);
+    } else {
+      setRecipes([]);
+      setMatches(false);
+    }
+    setLoading(false);
   };
 
   const updateSearch = (e) => {
