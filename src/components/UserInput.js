@@ -61,6 +61,7 @@ const UserInput = (props) => {
               name="ingredients"
               placeholder="search for recipes..."
               onChange={updateSearch}
+              value={search}
             />
 
             <button className="form-button py-1 px-2 h-full bg-white rounded ease-out duration-300 border border-solid border-gray-300 hover:bg-gray-100 hover:text-green-400 flex items-center">

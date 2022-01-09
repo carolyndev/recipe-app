@@ -6,7 +6,6 @@ import loadinggif from '../images/loading.gif';
 const RecipeList = (props) => {
   const {
     animationReset,
-    inputField,
     favorites,
     setFavorites,
     loading,
@@ -15,14 +14,15 @@ const RecipeList = (props) => {
     recipes,
     setRecipes,
     showForm,
+    setSearch,
   } = props;
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recipesPerPage, setRecipesPerPage] = useState(12);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [recipes]);
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [recipesPerPage, setRecipesPerPage] = useState(12);
 
   const lastRecipeIndex = currentPage * recipesPerPage;
   const firstRecipeIndex = lastRecipeIndex - recipesPerPage;
@@ -31,7 +31,7 @@ const RecipeList = (props) => {
   const clearResults = () => {
     setRecipes([]);
     setMatches(true);
-    inputField.value = '';
+    setSearch('');
   };
 
   return (
@@ -43,7 +43,7 @@ const RecipeList = (props) => {
               <h3 className="loading-title mb-8">Search Results</h3>
               <p className="loading-desc max-w-90 mx-auto text-center flex justify-center items-center">
                 Grabbing some recipes
-                <span className="ml-1">
+                <span className="ml-2">
                   <img
                     src={loadinggif}
                     alt="loading"
@@ -59,10 +59,7 @@ const RecipeList = (props) => {
               <div className="pagination-info max-w-90 mx-auto mb-4">
                 <h3 className="loading-title mb-8 flex justify-between">
                   Search Results
-                  <button
-                    className="py-1 px-2 border border-gray-200 rounded ease-out duration-300 hover:bg-gray-100 hover:border-gray-300 hover:text-green-400"
-                    onClick={clearResults}
-                  >
+                  <button className="nav__btn" onClick={clearResults}>
                     <span>clear results</span>
                   </button>
                 </h3>

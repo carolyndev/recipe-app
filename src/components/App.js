@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Header from './Header';
 import Main from './Main';
-import RecipeDetails from './RecipeDetails';
+import RecipePage from './RecipePage';
 import Favorites from './Favorites';
 import Surprise from './Surprise';
 
@@ -18,8 +18,9 @@ const App = () => {
   const [uniqueFavorites, setUniqueFavorites] = useState([]);
   const [recipeLoading, setRecipeLoading] = useState(false);
   const [counter, setCounter] = useState(0);
-
-  const inputField = document.querySelector('#input-text');
+  const [details, setDetails] = useState({});
+  const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstructions] = useState([]);
 
   useEffect(() => {
     getLocalFavorites();
@@ -37,7 +38,6 @@ const App = () => {
   const returnHome = () => {
     setSearch('');
     setShowForm(true);
-    inputField.value = '';
   };
 
   const saveLocalFavorites = () => {
@@ -92,7 +92,6 @@ const App = () => {
         <Main
           API_KEY={API_KEY}
           animationReset={animationReset}
-          inputField={inputField}
           favorites={favorites}
           setFavorites={setFavorites}
           loading={loading}
@@ -111,16 +110,22 @@ const App = () => {
           path="/recipe/:id"
           exact
           render={(props) => (
-            <RecipeDetails
+            <RecipePage
               {...props}
               API_KEY={API_KEY}
               animationReset={animationReset}
               saveLocalFavorites={saveLocalFavorites}
-              getLocalRecipes={getLocalRecipes}
+              // getLocalRecipes={getLocalRecipes}
               setShowForm={setShowForm}
               setFavorites={setFavorites}
               recipeLoading={recipeLoading}
               setRecipeLoading={setRecipeLoading}
+              ingredients={ingredients}
+              setIngredients={setIngredients}
+              instructions={instructions}
+              setInstructions={setInstructions}
+              details={details}
+              setDetails={setDetails}
             />
           )}
         />
@@ -141,6 +146,14 @@ const App = () => {
             saveLocalFavorites={saveLocalFavorites}
             setFavorites={setFavorites}
             setShowForm={setShowForm}
+            ingredients={ingredients}
+            setIngredients={setIngredients}
+            instructions={instructions}
+            setInstructions={setInstructions}
+            details={details}
+            setDetails={setDetails}
+            recipeLoading={loading}
+            setRecipeLoading={setLoading}
           />
         </Route>
       </Switch>
