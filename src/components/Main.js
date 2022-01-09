@@ -8,7 +8,6 @@ const Main = (props) => {
   const {
     API_KEY,
     animationReset,
-    inputField,
     favorites,
     setFavorites,
     loading,
@@ -71,7 +70,6 @@ const Main = (props) => {
           />
           <RecipeList
             animationReset={animationReset}
-            inputField={inputField}
             favorites={favorites}
             setFavorites={setFavorites}
             loading={loading}
@@ -80,6 +78,7 @@ const Main = (props) => {
             recipes={recipes}
             setRecipes={setRecipes}
             showForm={showForm}
+            setSearch={setSearch}
           />
         </>
       )}
