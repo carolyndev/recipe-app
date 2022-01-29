@@ -115,7 +115,6 @@ const App = () => {
               API_KEY={API_KEY}
               animationReset={animationReset}
               saveLocalFavorites={saveLocalFavorites}
-              // getLocalRecipes={getLocalRecipes}
               setShowForm={setShowForm}
               setFavorites={setFavorites}
               recipeLoading={recipeLoading}
@@ -129,6 +128,7 @@ const App = () => {
             />
           )}
         />
+
         <Route path="/favorites">
           <Favorites
             returnHome={returnHome}
@@ -138,6 +138,7 @@ const App = () => {
             setShowForm={setShowForm}
           />
         </Route>
+
         <Route path="/surprise">
           <Surprise
             API_KEY={API_KEY}

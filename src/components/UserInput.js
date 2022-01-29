@@ -15,6 +15,7 @@ const UserInput = (props) => {
     getRecipes();
   };
 
+  //  call api and handle results
   const getRecipes = async () => {
     const url = `https://api.spoonacular.com/recipes/complexSearch?query=${search}&apiKey=${API_KEY}&number=100&addRecipeNutrition=true`;
 
@@ -27,6 +28,7 @@ const UserInput = (props) => {
     }
   };
 
+  // populate data on screen
   const populateRecipes = (data) => {
     if (data.results.length > 0) {
       setRecipes(data.results);
@@ -50,6 +52,8 @@ const UserInput = (props) => {
             To explore multiple ingredients or recipes at a time, separate items
             with a comma (e.g. ham, eggs, etc.).
           </p>
+
+          {/* collect user input */}
           <form
             onSubmit={searchByRecipes}
             className="form-form flex items-center mb-2"

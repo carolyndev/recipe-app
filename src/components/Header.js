@@ -23,7 +23,7 @@ const Header = (props) => {
 
         <div className="nav__links">
           <ul className="flex flex-row w-full justify-end">
-            <li className="nav__btn">
+            <li className="nav__btn mr-2">
               <Link to={'/favorites'} className="flex items-center">
                 <HeartIcon className="nav-icon" />
                 <span className="inline-block">favorites</span>

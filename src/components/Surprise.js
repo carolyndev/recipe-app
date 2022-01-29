@@ -32,7 +32,6 @@ const Surprise = (props) => {
     const response = await fetch(url);
     if (response.ok) {
       const res = await response.json();
-      console.log(res.recipes[0]);
       const data = res.recipes[0];
       setDetails(data);
 

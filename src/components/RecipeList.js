@@ -59,7 +59,7 @@ const RecipeList = (props) => {
               <div className="pagination-info max-w-90 mx-auto mb-4">
                 <h3 className="loading-title mb-8 flex justify-between">
                   Search Results
-                  <button className="nav__btn" onClick={clearResults}>
+                  <button className="clear-btn" onClick={clearResults}>
                     <span>clear results</span>
                   </button>
                 </h3>
@@ -84,10 +84,7 @@ const RecipeList = (props) => {
                           : displayedRecipes.length * currentPage}
                       </span>
                     </h3>
-                    <button
-                      className="py-1 px-2 border border-gray-200 rounded ease-out duration-300 hover:bg-gray-100 hover:border-gray-300 hover:text-green-400"
-                      onClick={clearResults}
-                    >
+                    <button className="clear-btn" onClick={clearResults}>
                       <span>clear results</span>
                     </button>
                   </div>
