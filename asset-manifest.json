@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/recipeace/static/css/main.e62671db.chunk.css",
-    "main.js": "/recipeace/static/js/main.84f6dbaf.chunk.js",
-    "main.js.map": "/recipeace/static/js/main.84f6dbaf.chunk.js.map",
+    "main.css": "/recipeace/static/css/main.4fdedb88.chunk.css",
+    "main.js": "/recipeace/static/js/main.fdb33cc6.chunk.js",
+    "main.js.map": "/recipeace/static/js/main.fdb33cc6.chunk.js.map",
     "runtime-main.js": "/recipeace/static/js/runtime-main.95989c61.js",
     "runtime-main.js.map": "/recipeace/static/js/runtime-main.95989c61.js.map",
     "static/js/2.427bb272.chunk.js": "/recipeace/static/js/2.427bb272.chunk.js",
     "static/js/2.427bb272.chunk.js.map": "/recipeace/static/js/2.427bb272.chunk.js.map",
     "index.html": "/recipeace/index.html",
-    "static/css/main.e62671db.chunk.css.map": "/recipeace/static/css/main.e62671db.chunk.css.map",
+    "static/css/main.4fdedb88.chunk.css.map": "/recipeace/static/css/main.4fdedb88.chunk.css.map",
     "static/js/2.427bb272.chunk.js.LICENSE.txt": "/recipeace/static/js/2.427bb272.chunk.js.LICENSE.txt",
     "static/media/drink.ad492059.svg": "/recipeace/static/media/drink.ad492059.svg",
     "static/media/food-illu-2.b1f76ea4.jpg": "/recipeace/static/media/food-illu-2.b1f76ea4.jpg",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.95989c61.js",
     "static/js/2.427bb272.chunk.js",
-    "static/css/main.e62671db.chunk.css",
-    "static/js/main.84f6dbaf.chunk.js"
+    "static/css/main.4fdedb88.chunk.css",
+    "static/js/main.fdb33cc6.chunk.js"
   ]
 }
