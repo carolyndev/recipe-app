@@ -61,7 +61,7 @@ const UserInput = (props) => {
             <input
               type="text"
               id="input-text"
-              className="form-input w-full py-1 px-2 mr-2 border border-solid border-gray-300 rounded focus:outline-none placeholder-gray-300 text-base"
+              className="form-input w-full py-1 px-2 mr-2 md:mr-4 border border-solid border-gray-300 rounded focus:outline-none placeholder-gray-300 text-base"
               name="ingredients"
               placeholder="search for recipes..."
               onChange={updateSearch}

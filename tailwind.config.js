@@ -4,11 +4,13 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     minWidth: {
-      xs: '375px',
+      xs: '320px',
     },
     screens: {
+      xs: '375px',
+
       sm: '480px',
-      // => @media (min-width: 640px) { ... }
+      // => @media (min-width: 480px) { ... }
 
       md: '768px',
       // => @media (min-width: 768px) { ... }
